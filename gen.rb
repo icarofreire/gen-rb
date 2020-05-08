@@ -5,7 +5,7 @@ require 'json'
 
 # \/ cria arquivo se o mesmo não existe;
 def criar_arquivo(nome, conteudo)
-    if File.file?(nome)
+    if !File.file?(nome)
         File.write(nome, conteudo)
     else
         return false
@@ -45,6 +45,10 @@ def subs_arquivo(nome, hash_subs)
     end
 end
 
+# \/ Exemplo de hash com key regex e valor string;
+#subs = {/ActiveRecord::Migration/ => 'ActiveRecord::Migration[5.2]'}
+#puts subs[/ActiveRecord::Migration/]
+
 # \/ realizar substituição em determinada linha do arquivo;
 def substituir_linha_arquivo(nome, linha, novo_conteudo)
 	lines = File.readlines(nome)
@@ -73,9 +77,32 @@ def add_linhas_arquivo(nome, linha, array_novos_conteudos)
 	File.open(nome,'w') {|fw| fw.write(lines.join)}
 end
 
+# dir_raiz = "D:\\Documentos\\gen-rb"
+# dir_criar = "\\icaro\\teste\\blob"
 
-#subs = {/ActiveRecord::Migration/ => 'ActiveRecord::Migration[5.2]'}
-#puts subs[/ActiveRecord::Migration/]
+# \/ cria lista de diretórios aninhados definidos por uma string, em um diretório definido;
+# Ex: No diretório raiz "ProjetoX/pasta-projeto1", Criar subdiretórios "\\pasta1\\sub-pasta2\\sub-pasta3";
+def criar_diretorios_aninhados(dir_raiz, dir_criar)
+	sub = dir_raiz
+	sep = '\\'
+	dir_criar.split(sep).each do |pasta|
+		sub += sep+pasta
+		criar_pasta(sub)
+	end
+end
+
+# \/ cria arquivo em diretórios aninhados definidos por uma string, em um diretório definido;
+# Ex: No diretório raiz "ProjetoX/pasta-projeto1", Criar arquivo através dos subdiretórios "\\pasta1\\sub-pasta2\\arquivoX";
+def criar_arquivo_dir_aninhados(dir_raiz, dir_criar)
+	sub = dir_raiz
+	sep = '\\'
+	arr_dir = dir_criar.split(sep)
+	arr_dir[0...-1].each do |pasta|
+		sub += sep+pasta
+		criar_pasta(sub)
+	end
+	criar_arquivo(sub+sep+arr_dir[-1], '')
+end
 
 # \/ ler arquivo JSON a partir da linha de comando;
 def ler_arquivo_json
@@ -104,3 +131,4 @@ puts json['foo'] # prints "bar"
 json = JSON.parse(string)
 puts( json['main_item']['stats']['c'] )
 =end
+
