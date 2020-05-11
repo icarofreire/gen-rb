@@ -17,6 +17,11 @@ def deletar_arquivo(nome)
     File.delete(nome) if File.exist?(nome)
 end
 
+# \/ renomear arquivo;
+def renomear_arquivo(nome_arquivo, novo_nome)
+	File.rename(nome_arquivo, novo_nome) if File.exist?(nome_arquivo)
+end
+
 # \/ realizar substituições em arquivos de forma recursiva;
 def gerar_substituicoes(pasta_projeto, hash_subs)
 	path = pasta_projeto
@@ -104,6 +109,13 @@ def criar_arquivo_dir_aninhados(dir_raiz, dir_criar)
 	criar_arquivo(sub+sep+arr_dir[-1], '')
 end
 
+# \/ abrir e ler arquivo json;
+def ler_json(arquivo)
+	json_from_file = File.read(arquivo)
+	hash = JSON.parse(json_from_file)
+	hash
+end
+
 # \/ ler arquivo JSON a partir da linha de comando;
 def ler_arquivo_json
 	if ARGV.length != 1
@@ -132,3 +144,5 @@ json = JSON.parse(string)
 puts( json['main_item']['stats']['c'] )
 =end
 
+json = ler_json('D:\\Documentos\\gen-rb\\json-entrada.json')
+puts json['actions']

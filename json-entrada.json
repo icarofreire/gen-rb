@@ -1,0 +1,52 @@
+{"actions": {
+    "sub": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "create": {
+        "nome": "Sample Konfabulator Widget",
+        "conteudo": "main_window"
+    },
+    "del": {
+        "nome": "Sample Konfabulator Widget"
+    },
+    "rename": {
+        "nome": "Sample Konfabulator Widget",
+        "novo_nome": "Sample Konfabulator Widget"
+    },
+    "substituicoes-projeto": { 
+        "src": "Images/Sun.png",
+        "hash_subs": "sun1"
+    },
+    "substituicoes-src": { 
+        "src": "Images/Sun.png",
+        "hash_subs": "sun1"
+    },
+    "substituir_linha_arquivo": { 
+        "nome": "Images/Sun.png",
+        "linha": "sun1",
+        "novo_conteudo": "sun1"
+    },
+    "criar_pasta": {
+        "nome": "Click Here"
+    },
+    "add_conteudo_arquivo": {
+        "arquivo": "Click Here",
+        "conteudo": "Click Here"
+    },
+    "add_linhas_arquivo": {
+        "nome": "Click Here",
+        "linha": "Click Here",
+        "array_novos_conteudos": ["cont1...", "cont1...", "cont1..."]
+    },
+    "criar_diretorios_aninhados": {
+        "dir_raiz": "Click Here",
+        "dir_criar": "Click Here"
+    },
+    "criar_arquivo_dir_aninhados": {
+        "dir_raiz": "Click Here",
+        "dir_criar": "Click Here"
+    }
+}} 
