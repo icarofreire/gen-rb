@@ -1,9 +1,7 @@
 {"actions": {
     "sub": {
-        "title": "Sample Konfabulator Widget",
-        "name": "main_window",
-        "width": 500,
-        "height": 500
+        "arquivo": "Sample Konfabulator Widget",
+        "hash_subs": "main_window"
     },
     "create": {
         "nome": "Sample Konfabulator Widget",
