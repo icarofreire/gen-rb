@@ -15,7 +15,7 @@
         "novo_nome": "Sample Konfabulator Widget"
     },
     "substituicoes-projeto": { 
-        "src": "Images/Sun.png",
+        "folder-project": "Images/Sun.png",
         "hash_subs": "sun1"
     },
     "substituicoes-src": { 
@@ -37,7 +37,7 @@
     "add_linhas_arquivo": {
         "nome": "Click Here",
         "linha": "Click Here",
-        "array_novos_conteudos": ["cont1...", "cont1...", "cont1..."]
+        "array_novos_conteudos": ["cont1...", "cont2...", "cont3..."]
     },
     "criar_diretorios_aninhados": {
         "dir_raiz": "Click Here",
